@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fatloss">
+    package="com.qwe153999.slimmingcheckinapp">
 
     <application
         android:label="瘦身打卡"

@@ -1,10 +1,10 @@
-package com.example.fatloss.ui
+package com.qwe153999.slimmingcheckinapp.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.fatloss.data.DiaryEntry
-import com.example.fatloss.data.DiaryRepository
+import com.qwe153999.slimmingcheckinapp.data.DiaryEntry
+import com.qwe153999.slimmingcheckinapp.data.DiaryRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

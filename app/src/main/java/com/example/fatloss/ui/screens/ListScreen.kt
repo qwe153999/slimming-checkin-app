@@ -1,4 +1,4 @@
-package com.example.fatloss.ui.screens
+package com.qwe153999.slimmingcheckinapp.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -7,13 +7,13 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.fatloss.data.DiaryEntry
-import com.example.fatloss.ui.DiaryViewModel
+import com.qwe153999.slimmingcheckinapp.data.DiaryEntry
+import com.qwe153999.slimmingcheckinapp.ui.DiaryViewModel
 
 @Composable
 fun ListScreen(vm: DiaryViewModel, onAdd: () -> Unit, onEdit: (Int) -> Unit) {
     val items by vm.entries.collectAsState()
-    var entryToDelete by remember { mutableStateOf<DiaryEntry?>(null) }
+    var entryToDelete by remember { mutableStateOf<com.qwe153999.slimmingcheckinapp.data.DiaryEntry?>(null) }
 
     val scaffoldState = rememberScaffoldState()
 

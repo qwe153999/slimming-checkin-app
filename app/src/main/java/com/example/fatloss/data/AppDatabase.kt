@@ -1,4 +1,4 @@
-package com.example.fatloss.data
+package com.qwe153999.slimmingcheckinapp.data
 
 import android.content.Context
 import androidx.room.Database

@@ -1,4 +1,4 @@
-package com.example.fatloss.ui.theme
+package com.qwe153999.slimmingcheckinapp.ui.theme
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.lightColors

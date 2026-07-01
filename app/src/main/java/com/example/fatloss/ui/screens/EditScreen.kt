@@ -1,12 +1,12 @@
-package com.example.fatloss.ui.screens
+package com.qwe153999.slimmingcheckinapp.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.fatloss.data.DiaryEntry
-import com.example.fatloss.ui.DiaryViewModel
+import com.qwe153999.slimmingcheckinapp.data.DiaryEntry
+import com.qwe153999.slimmingcheckinapp.ui.DiaryViewModel
 import kotlinx.coroutines.launch
 
 @Composable

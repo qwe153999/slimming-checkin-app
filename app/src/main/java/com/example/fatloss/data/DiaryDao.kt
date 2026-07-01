@@ -1,4 +1,4 @@
-package com.example.fatloss.data
+package com.qwe153999.slimmingcheckinapp.data
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
