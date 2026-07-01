@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Slimming Checkin App</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, "Microsoft YaHei", sans-serif;
+        color: #1f2933;
+        background: #f7f8fa;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      main {
+        width: min(720px, calc(100% - 40px));
+        background: #ffffff;
+        border: 1px solid #d9dee7;
+        border-radius: 8px;
+        padding: 32px;
+        box-shadow: 0 16px 40px rgba(31, 41, 51, 0.08);
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(28px, 5vw, 40px);
+        line-height: 1.15;
+      }
+
+      p {
+        margin: 0 0 16px;
+        line-height: 1.7;
+      }
+
+      code {
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: #edf1f7;
+        font-size: 0.95em;
+      }
+
+      .note {
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid #e6e9ef;
+        color: #52616f;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Slimming Checkin App</h1>
+      <p>这个仓库是 Android 应用项目，不是 Web 应用。Netlify 只能发布静态网页和 Netlify Functions，因此直接访问站点时原本会看到默认的 404 页面。</p>
+      <p>如需运行应用，请在 Android Studio 中打开项目，或在支持 Android SDK 的环境里执行 <code>./gradlew assembleDebug</code> 生成 APK。</p>
+      <p class="note">此页面用于避免 Netlify 首页显示 “Page not found”，并说明项目的正确运行方式。</p>
+    </main>
+  </body>
+</html>
