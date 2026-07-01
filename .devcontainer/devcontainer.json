@@ -1,0 +1,6 @@
+{
+  "name": "Android (minimal)",
+  "image": "mcr.microsoft.com/devcontainers/java:1-17",
+  "postCreateCommand": "bash .devcontainer/install-android-sdk.sh",
+  "remoteUser": "vscode"
+}

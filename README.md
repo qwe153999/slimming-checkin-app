@@ -1,3 +1,5 @@
+[![Open in Trae](https://img.shields.io/badge/Open%20in-Trae-blue?logo=trae)](https://trae.app/github/qwe153999/slimming-checkin-app)
+
 # Slimming Checkin App (Android - Compose + Room)
 
 This repository contains a simple demo Android app (Kotlin + Jetpack Compose) for keeping daily slimming / check-in entries.
