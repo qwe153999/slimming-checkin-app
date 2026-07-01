@@ -4,8 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.fatloss.data.DiaryEntry
@@ -13,17 +12,39 @@ import com.example.fatloss.ui.DiaryViewModel
 
 @Composable
 fun ListScreen(vm: DiaryViewModel, onAdd: () -> Unit, onEdit: (Int) -> Unit) {
-    val items = vm.entries.collectAsState()
+    val items by vm.entries.collectAsState()
+    var entryToDelete by remember { mutableStateOf<DiaryEntry?>(null) }
+
+    val scaffoldState = rememberScaffoldState()
+
     Scaffold(
+        scaffoldState = scaffoldState,
         topBar = { TopAppBar(title = { Text("瘦身每日打卡") }) },
         floatingActionButton = {
             FloatingActionButton(onClick = onAdd) { Text("+") }
         }
     ) { padding ->
         LazyColumn(modifier = Modifier.padding(padding)) {
-            items(items.value) { entry ->
-                DiaryCard(entry = entry, onClick = { onEdit(entry.id) }, onDelete = { vm.delete(entry) })
+            items(items) { entry ->
+                DiaryCard(entry = entry, onClick = { onEdit(entry.id) }, onDelete = { entryToDelete = entry })
             }
+        }
+
+        if (entryToDelete != null) {
+            AlertDialog(
+                onDismissRequest = { entryToDelete = null },
+                title = { Text("删除确认") },
+                text = { Text("确定要删除这条打卡记录吗？此操作无法撤销。") },
+                confirmButton = {
+                    TextButton(onClick = {
+                        vm.delete(entryToDelete!!)
+                        entryToDelete = null
+                    }) { Text("删除") }
+                },
+                dismissButton = {
+                    TextButton(onClick = { entryToDelete = null }) { Text("取消") }
+                }
+            )
         }
     }
 }

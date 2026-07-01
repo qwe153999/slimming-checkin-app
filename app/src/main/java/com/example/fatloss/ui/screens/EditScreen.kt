@@ -12,6 +12,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun EditScreen(vm: DiaryViewModel, entryId: Int? = null, onDone: () -> Unit) {
     val scope = rememberCoroutineScope()
+    val scaffoldState = rememberScaffoldState()
+
     var date by remember { mutableStateOf("今日") }
     var sourceTimes by remember { mutableStateOf("昨天 12:38\n来自电脑端\n\n14:26\n来自手机端") }
     var dayTaken by remember { mutableStateOf("13") }
@@ -34,7 +36,7 @@ fun EditScreen(vm: DiaryViewModel, entryId: Int? = null, onDone: () -> Unit) {
     var drinksMilk by remember { mutableStateOf(false) }
     var extra by remember { mutableStateOf("") }
 
-    Scaffold(topBar = { TopAppBar(title = { Text("编辑 / 新增打卡") }) }) { padding ->
+    Scaffold(scaffoldState = scaffoldState, topBar = { TopAppBar(title = { Text("编辑 / 新增打卡") }) }) { padding ->
         Column(modifier = Modifier.padding(12.dp).fillMaxSize()) {
             OutlinedTextField(value = date, onValueChange = { date = it }, label = { Text("日期") })
             Spacer(Modifier.height(8.dp))
@@ -62,6 +64,17 @@ fun EditScreen(vm: DiaryViewModel, entryId: Int? = null, onDone: () -> Unit) {
             Spacer(Modifier.height(8.dp))
 
             Button(onClick = {
+                // Simple validation
+                if (todayWeight.isBlank()) {
+                    scope.launch { scaffoldState.snackbarHostState.showSnackbar("请填写今日体重") }
+                    return@Button
+                }
+                val today = todayWeight.toDoubleOrNull()
+                if (today == null) {
+                    scope.launch { scaffoldState.snackbarHostState.showSnackbar("今日体重必须为数字，例如 77.3") }
+                    return@Button
+                }
+
                 val entry = DiaryEntry(
                     id = entryId ?: 0,
                     date = date,
